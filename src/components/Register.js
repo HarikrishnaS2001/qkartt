@@ -70,9 +70,9 @@ const Register = () => {
       //console.log(response.data);
       setloading(false);
       if(response.status === 201){
-      enqueueSnackbar("Registered successfully",{variant:'success'})
+      enqueueSnackbar("Registered successfully",{variant:'success'});
       //alert("success");
-      history.push("/login")
+      history.push("/login");
     }
 
   }
@@ -224,7 +224,7 @@ const Register = () => {
            </div>
           <p className="secondary-action">
             Already have an account?{" "}
-             <Link to="/login" className="link">
+             <Link to="/Login" className="link">
               Login here
              </Link>
           </p>
