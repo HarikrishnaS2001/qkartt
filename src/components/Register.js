@@ -5,10 +5,9 @@ import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { config } from "../App";
 import Footer from "./Footer";
+import { useHistory, Link } from "react-router-dom";
 import Header from "./Header";
 import "./Register.css";
-import {Link} from "react-router-dom";
-import { useHistory } from "react-router-dom";
 
 const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -26,23 +25,7 @@ const Register = () => {
 
   // TODO: CRIO_TASK_MODULE_REGISTER - Implement the register function
   /**
-   * Definition for register handler
-   * - Function to be called when the user clicks on the register button or submits the register form
-   *
-   * @param {{ username: string, password: string, confirmPassword: string }} formData
-   *  Object with values of username, password and confirm password user entered to register
-   *
-   * API endpoint - "POST /auth/register"
-   *
    * Example for successful response from backend for the API call:
-   * HTTP 201
-   * {
-   *      "success": true,
-   * }
-   *
-   * Example for failed response from backend for the API call:
-   * HTTP 400
-   * {
    *      "success": false,
    *      "message": "Username is already taken"
    * }
@@ -79,15 +62,7 @@ const Register = () => {
     catch(error)
     {
       setloading(false);
-      // axios.post(`${url}/auth/register`,{
-      //   username:formData.username,
-      //    password:formData.password
-      //  }).catch(e =>{
-      //   if(e.response)
-      //   {
-      //     enqueueSnackbar(e.response.data.message,{variant:'error'})
-      //   }
-      //   else{
+  
         if(error.response && error.response.status === 400){
           enqueueSnackbar("Username is already taken",{variant:"error"});
         }
